@@ -1,0 +1,871 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F7FBFC;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 270px;
+  background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+}
+
+.admin-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.admin-info h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.admin-info p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #333;
+}
+
+nav.menu {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 30px;
+}
+
+nav.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav.menu ul li {
+  margin-bottom: 20px;
+}
+
+nav.menu ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+nav.menu ul li a:hover {
+  background-color: #71d4fc;
+  border-radius: 10px;
+}
+
+nav.menu ul li a i {
+  margin-right: 15px;
+}
+
+nav.menu ul li.active a {
+  background-color: #71d4fc;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.logout {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logout a i {
+  margin-right: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 270px; /* Default width */
+  background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Scroll if content overflows */
+  transition: width 0.3s ease;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+}
+
+.admin-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.admin-info h3, .admin-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+nav.menu {
+  flex-grow: 1;
+  margin-top: 30px;
+}
+
+nav.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav.menu ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+nav.menu ul li a:hover,
+nav.menu ul li.active a {
+  background-color: #71d4fc;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+nav.menu ul li a i {
+  margin-right: 10px;
+}
+
+.logout {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logout a i {
+  margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 270px; /* Respect sidebar width */
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  overflow-x: auto; /* Prevent content overflow */
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 180px; /* Smaller sidebar on medium screens */
+  }
+
+  .main-content {
+      margin-left: 180px; /* Adjust main content */
+  }
+
+  .admin-info h3,
+  .admin-info p {
+      font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+      width: 100px; /* Narrow sidebar for small screens */
+      padding: 10px 0;
+  }
+
+  nav.menu ul li a {
+      justify-content: center; /* Center icons */
+      padding: 10px;
+  }
+
+  nav.menu ul li a i {
+      margin: 0;
+  }
+
+  .admin-info h3,
+  .admin-info p {
+      display: none; /* Hide text for small screens */
+  }}
+  
+
+
+
+/* Main Content Styles */
+.main-content {
+display: flex;
+flex-direction: column;
+justify-content: center; /* Center content vertically */
+align-items: center; /* Center content horizontally */
+flex-grow: 1;
+background-color: #fafafa;
+padding: 20px;
+box-sizing: border-box;
+
+}
+/* POS Container */
+.pos-container {
+display: flex;
+justify-content: space-between; /* Space between inventory and cart */
+align-items: flex-start; /* Align items at the top */
+gap: 20px;
+width: 100%;
+height: 100%; /* Full height of the viewport */
+padding: 30px;
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+box-sizing: border-box;
+overflow: hidden; /* Prevent layout overflow */
+}
+/* Inventory Table Styles */
+.inventory-section {
+  width: 60%; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-section h2 {
+  display: inline-block;
+  font-size: 24px;
+  padding: 15px 30px;
+  background-color: #71d4fc;
+  color: #000;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.scrollable-table {
+  max-height: 400px; /* Set max height for scrolling */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 10px;
+  text-align: center; /* Horizontally center text */
+  vertical-align: middle; /* Vertically center text */
+  border-bottom: 1px solid #ddd;
+}
+
+.inventory-table th {
+  top: 0;
+  background-color: #71d4fc;
+  color: #000;
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.inventory-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.inventory-table tr:nth-child(even) {
+  background-color: #f5f5f5; /* Light gray background for alternating rows */
+}
+
+.inventory-table tr:hover {
+  background-color: #e0f7fa; /* Light cyan background on hover */
+}
+
+.inventory-table .add-to-cart-btn {
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.inventory-table .add-to-cart-btn:hover {
+  background-color: #009acd; /* Slightly darker on hover */
+}
+
+/* Cart Summary Section */
+.cart-summary {
+flex: 1; /* Smaller space for the cart on the right */
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+height: 100%; /* Match height with the inventory section */
+background-color: #f9f9f9;
+border-radius: 5px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+padding: 20px;
+box-sizing: border-box;
+overflow: hidden; /* Prevent layout resizing due to content */
+}
+
+
+.cart-summary h4 {
+margin-bottom: 20px;
+font-size: 22px;
+color: #333;
+font-weight: bold;
+}
+/* Cart Items - Scrollable Section */
+.cart-items {
+flex-grow: 1; /* Allow this section to grow and take up remaining space */
+overflow-y: auto; /* Enable vertical scrolling for long cart lists */
+min-height: 100px; /* Ensure some space even if the cart is empty */
+padding: 10px;
+border: 1px solid #ddd; /* Optional: Add border for clarity */
+background-color: #fff; /* Clear background */
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+/* Remove Item Button */
+.remove-item-btn {
+background-color: #f44336;
+border: none;
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.remove-item-btn:hover {
+background-color: #d32f2f;
+}
+/* Total Section */
+.cart-total {
+display: flex;
+justify-content: space-between;
+font-size: 16px;
+margin-top: 10px;
+font-weight: bold;
+}
+
+/* Checkout Button */
+.checkout-btn {
+padding: 15px;
+background-color: #00bfff;
+border: none;
+color: white;
+font-size: 16px;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s;
+margin-top: 10px; /* Add spacing from the total */
+}
+
+.checkout-btn:hover {
+  background-color: #009acd;
+}
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out; /* Animation for smooth appearance */
+}
+
+#modal .modal-content {
+  background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.4s ease; /* Slide-in animation for the modal */
+  position: relative;
+}
+
+
+
+#modal .modal-icon {
+  font-size: 40px;
+  color: #71d4fc; /* Vibrant blue for attention */
+  margin-bottom: 15px;
+}
+
+#modal .modal-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#modal .modal-content p {
+  font-size: 1.5rem;
+  color: black;
+  margin: 15px 0;
+}
+
+#modal .modal-content button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* OK Button */
+#modal-btn {
+  background-color: #71d4fc; /* Same blue as the icon */
+  color: #ffffff;
+}
+
+#modal-btn:hover {
+  background-color: #009acd; /* Slightly darker on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+  
+.inventory-table th,
+.inventory-table td {
+  padding: 10px;
+  text-align: center; /* Horizontally center text */
+  vertical-align: middle; /* Vertically center text */
+  border-bottom: 1px solid #ddd;
+}
+
+
+/* Individual Cart Item - Modern and Aligned */
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 100px 80px; /* Fixed-width columns for price and button */
+  align-items: center;
+  gap: 10px; /* Space between columns */
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Item Name - Long names truncated */
+.cart-item span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+
+/* Price - Fixed alignment */
+.cart-item span:nth-child(2) {
+  text-align: right;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Remove Button */
+.cart-item button {
+  justify-self: end; /* Align button to the right */
+}
+
+.logout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; /* Animation for smooth appearance */
+    }
+    
+    .modal-logouts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.logouts-content {
+    background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s ease;
+    position: relative;
+}
+
+.modal-icon {
+    font-size: 40px;
+    color: #71d4fc;
+    margin-bottom: 15px;
+}
+
+.logouts-content h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.logouts-content button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Confirm Button */
+.confirms-buttons {
+    background-color: #71d4fc;
+    color: #ffffff;
+}
+
+.confirms-buttons:hover {
+    background-color: #71d4fc;
+    transform: scale(1.05);
+}
+
+/* Cancel Button */
+.cancels-buttons {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancels-buttons:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+ /* Confirmation Modal Styles */
+ .confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out; /* Animation for smooth appearance */
+}
+
+/* Modal Content */
+.confirmation-content {
+  background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.4s ease; /* Slide-in animation for the modal */
+  position: relative;
+}
+
+.modal-icon {
+  font-size: 40px;
+  color: #71d4fc; /* Vibrant color for attention */
+  margin-bottom: 15px;
+}
+
+.confirmation-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Modal Buttons */
+.modal-button {
+  margin-top: 20px;
+}
+
+.confirmation-content button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Confirm Button */
+.confirm-btn {
+  background-color: #71d4fc; /* Same color as the icon */
+  color: #ffffff;
+}
+
+.confirm-btn:hover {
+  background-color: #71bcec; /* Slightly darker on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Cancel Button */
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb; /* Slightly darker on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+      transform: translateY(-50px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+
+/* Scrollable table container */
+.scrollable-table {
+max-height: 550px; /* Adjust this value as needed */
+overflow-y: auto;
+border: 1px solid #ddd; /* Optional: Add a border for clarity */
+margin-top: 10px; /* Space between dropdowns and table */
+}
+
+
+
+/* Filters Container */
+.filters-container {
+display: flex;
+flex-direction: column;
+gap: 20px; /* Add spacing between sections */
+margin-bottom: 20px; /* Space below the filters container */
+}
+
+/* Customer Selection */
+.customer-selection {
+display: flex;
+align-items: center; /* Center items vertically */
+gap: 10px; /* Spacing between label and select */
+}
+
+/* Consistent Input and Dropdown Height */
+.customer-selection select,
+.sort-by-type select {
+height: 40px; /* Adjust height as needed */
+padding: 5px;
+font-size: 14px;
+border: 1px solid #ccc; /* Optional: Add a border for styling */
+border-radius: 5px; /* Optional: Add rounded corners */
+box-sizing: border-box; /* Ensure consistent sizing */
+}
+
+/* Optional: Style Labels for Consistency */
+.customer-selection label,
+.sort-by-type label {
+font-weight: bold;
+font-size: 18px; /* Match font size to select */
+margin-right: 10px; /* Space between label and select */
+line-height: 40px; /* Match label height to select height for alignment */
+}
+
+
+
+/* Adjusted Search Bar Design */
+.inventory-search .search-bar {
+display: flex;
+align-items: center;
+border-radius: 5px;
+background-color: #fff;
+width: 238px; /* Set a fixed width */
+height: 40px; /* Adjust height */
+box-sizing: border-box; /* Ensure padding doesn’t affect total size */
+}
+
+.inventory-search .search-bar input {
+  padding: 11px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+.inventory-search .search-bar button {
+  padding: 12px 15px;
+  background-color: #00bfff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  border-radius: 0 5px 5px 0;
+}
+
+.inventory-search .search-bar button:hover {
+background-color: #009acd;
+}
+
+/* Optional: Style the search icon */
+.inventory-search .search-bar button i {
+font-size: 16px;
+}
+
+/* Adjust layout of the search-sort container */
+.search-sort-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 20px;
+}

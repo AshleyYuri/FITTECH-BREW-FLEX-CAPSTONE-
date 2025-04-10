@@ -1,0 +1,937 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F7FBFC;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Sidebar Styles */close-btn
+  .sidebar {
+    width: 270px;
+    background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0;
+  }
+  
+  .admin-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+  }
+  
+  .admin-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .admin-info h3 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: normal;
+  }
+  
+  .admin-info p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #333;
+  }
+  
+  nav.menu {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 30px;
+  }
+  
+  nav.menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav.menu ul li {
+    margin-bottom: 20px;
+  }
+  
+  nav.menu ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease;
+  }
+  
+  nav.menu ul li a:hover {
+    background-color: #71d4fc;
+    border-radius: 10px;
+  }
+  
+  nav.menu ul li a i {
+    margin-right: 15px;
+  }
+  
+  nav.menu ul li.active a {
+    background-color: #71d4fc;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  .logout {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .logout a {
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .logout a i {
+    margin-right: 10px;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 270px; /* Default width */
+    background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Scroll if content overflows */
+    transition: width 0.3s ease;
+  }
+  
+  .admin-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+  }
+  
+  .admin-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+  
+  .admin-info h3, .admin-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  nav.menu {
+    flex-grow: 1;
+    margin-top: 30px;
+  }
+  
+  nav.menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav.menu ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #000;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav.menu ul li a:hover,
+  nav.menu ul li.active a {
+    background-color: #71d4fc;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  nav.menu ul li a i {
+    margin-right: 10px;
+  }
+  
+  .logout {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logout a {
+    text-decoration: none;
+    color: #000;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .logout a i {
+    margin-right: 10px;
+  }
+  
+  /* Main Content */
+  .content-wrapper {
+    margin-left: 270px; /* Respect sidebar width */
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    overflow-x: auto; /* Prevent content overflow */
+    transition: margin-left 0.3s ease;
+  }
+  
+  /* Responsive Sidebar */
+  @media (max-width: 768px) {
+    .sidebar {
+        width: 180px; /* Smaller sidebar on medium screens */
+    }
+  
+    .main-content {
+        margin-left: 180px; /* Adjust main content */
+    }
+  
+    .admin-info h3,
+    .admin-info p {
+        font-size: 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+        width: 100px; /* Narrow sidebar for small screens */
+        padding: 10px 0;
+    }
+  
+    nav.menu ul li a {
+        justify-content: center; /* Center icons */
+        padding: 10px;
+    }
+  
+    nav.menu ul li a i {
+        margin: 0;
+    }
+  
+    .admin-info h3,
+    .admin-info p {
+        display: none; /* Hide text for small screens */
+    }}
+    
+/* Main Content Wrapper */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #71d4fc;
+    color: #000;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+
+
+
+.header-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Adds space between rows */
+}
+
+.entity-controls {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: baseline;
+}
+
+
+
+.entity-controls h3 {
+    margin: 0;
+    font-size: 16px;
+    color: black;
+
+}
+
+.entity-controls select {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+}
+.controls select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.entity-controls .dropdown-container {
+    display: flex;
+    /* Horizontal alignment for label and dropdown */
+    align-items: center;
+    /* Vertical alignment */
+    gap: 10px;
+    /* Space between label and dropdown */
+}
+
+.entity-controls p {
+    margin: 0;
+    font-size: 14px;
+    color: black;
+    margin-bottom: 5px;
+    /* Space between the dropdown and date filters */
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls h3 {
+    margin: 0;
+    font-size: 16px;
+
+}
+
+.controls select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+
+
+
+.date-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    align-items: center;
+    gap: 10px; /* Space between inputs and button */
+    margin-top: 10px; /* Space between dropdown and date filters */
+    width: 100%; /* Ensure proper alignment and responsiveness */
+    align-items: baseline;
+
+}
+
+.date-filters label {
+    font-size: 14px;
+    color: black;
+    margin: 0;
+}
+
+.date-filters input {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    flex: 1; /* Allow inputs to expand */
+}
+
+#apply-filters-button {
+    padding: 8px 12px;
+    background-color: #00bfff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 100px; /* Ensure consistent button size */
+}
+
+#apply-filters-button:hover {
+    background-color: #009acd; /* Slightly darker blue on hover */
+}
+
+
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align the search bar to the right */
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.search-bar form {
+    display: flex;
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+}
+
+.search-bar button {
+    padding: 12px ;
+    border: none;
+    background-color: #00bfff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.search-bar input:focus {
+    border-color: #71d4fc; /* Highlight border on focus */
+}
+        /* Scrollable Table Container */
+.table-container {
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    border-radius: 8px; /* Optional: Rounded corners for aesthetic */
+    background-color: #fff; /* Ensure a white background */
+    
+}
+.scrollable-container {
+    max-height: 550px; /* Set a fixed height for the main table */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    border: 1px solid #ddd; /* Optional: Add a border for clarity */
+    border-radius: 8px; /* Optional: Rounded corners for aesthetic */
+    background-color: #fff; /* Ensure a white background */
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    }
+    
+    .pagination a {
+    margin: 0 5px;
+    padding: 7px 14px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    }
+    
+    .pagination a:hover {
+    background-color: #ddd;
+    }
+    
+    .pagination .active {
+    background-color: #007bff;
+    color: white;
+    }
+
+
+
+        
+/* Sticky Table Headers */
+.table-container thead th {
+    padding: 15px;
+    top: 0; /* Sticks to the top of the container */
+    background-color: #71d4fc; /* Match your header background color */
+    z-index: 10; /* Ensure it stays on top of table rows */
+    border-bottom: 1px solid #ccc; /* Optional: Add a border for clarity */
+}
+        
+/* Styles for the "Expired Today" Container */
+.expired-today-container {
+max-height: 650px; /* Set a max height for the expired-today section */
+overflow-y: auto; /* Enable vertical scrolling */
+border: 1px solid #ddd; /* Optional: Add a border for visibility */
+}
+        
+
+.highlight {
+background-color: #71d4fc; /* Highlight background color */
+font-weight: bold;       /* Optional: Make highlighted text bold */
+color: black;            /* Optional: Ensure good readability */
+}
+
+.table-expired-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.table-container, .expired-today-container {
+    padding: 10px;
+    border: 0x solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    
+}
+
+.table-container {
+    flex: 3;
+    min-width: 500px;
+ 
+}
+
+.expired-today-container {
+    flex: 1;
+    min-width: 250px;
+    background-color: #FFE3E3;
+}
+  /* Style for expired dates */
+  .expired {
+    color: red;
+    font-weight: bold;
+}
+
+/* Style for near-expiry dates (within 3 days of expiry) */
+.near-expiry {
+    color: orange;
+    font-weight: bold;
+}
+
+.table-container table,
+.expired-today-container table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center; /* Center text for both tables */
+    
+}
+
+.table-container th, .table-container td,
+.expired-today-container th, .expired-today-container td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+    
+}
+
+.table-container th {
+    background-color: #71d4fc; /* Light blue background for header */
+    font-weight: bold;
+    
+    
+}
+
+.table-container td {
+    background-color: #f9f9f9;
+    
+}
+.table-container table thead {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #71d4fc; /* Background color for the header */
+    
+}
+
+
+.table-container table thead th:first-child {
+    border-top-left-radius: 8px;
+    
+}
+
+.table-container table thead th:last-child {
+    border-top-right-radius: 10px;
+
+}
+
+.table-container table {
+    border-collapse: separate; /* Use 'separate' to allow border-radius on thead */
+    border-spacing: 0; /* Remove extra spacing */
+    
+}
+
+
+.table-container tr:hover td {
+    background-color: #e0f7fa;
+}
+
+.expired-today-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #b13e3e;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+    background-color: #ff6b6b;
+    border-radius: 5px;
+    color: white;
+}
+
+.expired-today-table th, .expired-today-table td {
+    padding: 8px 5px;
+    text-align: center;
+}
+
+.action-buttons {
+    position: sticky;
+    bottom: 20px; /* Adjust as per your layout */
+    padding: 10px;
+    background: #fff; /* Optional: background color for better visibility */
+    z-index: 100; /* Ensure it stays above other elements */
+}
+
+.add-member {
+    align-self: flex-end; /* Aligns Add Member button to the right */
+}
+.filters-and-search {
+    display: flex;
+    justify-content: space-between; /* Positions Show Entities on the left and Search Bar on the right */
+    align-items: center;
+    width: 100%; /* Ensures it spans the full width */
+}
+
+.add-btn:hover {
+    background: #009acd;
+}
+
+
+.add-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background: #00bfff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end; /* Aligns Add Member button to the right */
+
+}
+.expired-date {
+    color: #ff4c4c;
+    font-weight: bold;
+}
+
+/* Style for expired dates */
+.expired {
+    color: red;  /* Red color for expired dates */
+    font-weight: bold;
+}
+
+/* Style for near-expiry dates (within 3 days of expiry) */
+.near-expiry {
+    color: orange;  /* Orange color for near-expiry dates */
+    font-weight: bold;
+}
+
+
+/* Hover Effect */
+.button:hover {
+    background-color: #009acd; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+
+/* Common Button Styling */
+.button {
+    padding: 8px 10px; /* Padding for size */
+    font-size: 12px; /* Font size for consistency */
+    font-weight: bold; /* Bold text */
+    color: #fff; /* White text */
+    background-color: #009acd; /* Light blue background */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for buttons */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+/* Disabled Button Style */
+.button:disabled {
+    background-color: #ccc; /* Gray background */
+    color: #666; /* Lighter text */
+    cursor: not-allowed; /* Show not-allowed cursor */
+}
+
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-in-out; /* Animation for smooth appearance */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Modal Header Styling */
+.modal-header {
+    display: flex;
+    align-items: center; /* Center the content vertically */
+    justify-content: center; /* Center the header title */
+    position: relative; /* Ensures the button can be absolutely positioned */
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    margin: 0 auto; /* Keeps the header title centered */
+}
+
+.modal-header button {
+    position: absolute; /* Positions the button relative to the header */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-header button:hover {
+    color: #ff0000; /* Optional: add a hover color for the close button */
+}
+
+.modal-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.qr-btn {
+    background-color: #00bcd4;; /* Blue button background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.qr-btn:hover {
+    background-color:#0097a7; /* Darker blue on hover */
+}
+.qr-btn:focus {
+    outline: none; /* Remove outline on focus */
+}
+
+/* Additional mobile responsiveness */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 100%;
+    }
+    .qr-btn {
+        width: 100%; /* Full-width buttons on small screens */
+    }
+}
+
+ .logout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; /* Animation for smooth appearance */
+    }
+    
+    .modal-logouts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.logouts-content {
+    background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s ease;
+    position: relative;
+}
+
+.modal-icon {
+    font-size: 40px;
+    color: #71d4fc;
+    margin-bottom: 15px;
+}
+
+.logouts-content h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.logouts-content button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Confirm Button */
+.confirms-buttons {
+    background-color: #71d4fc;
+    color: #ffffff;
+}
+
+.confirms-buttons:hover {
+    background-color: #71d4fc;
+    transform: scale(1.05);
+}
+
+/* Cancel Button */
+.cancels-buttons {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancels-buttons:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .table-expired-row {
+        flex-direction: column;
+    }
+
+    .header-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}
+ 
+.export-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add space between buttons */
+    margin-top: 20px; /* Space above the buttons */
+}
+
+.export-buttons button {
+    padding: 10px 20px; /* Button padding */
+    font-size: 14px; /* Button text size */
+    font-weight: bold; /* Make text bold */
+    color: white; /* Button text color */
+    background-color: #00bfff; /* Button background color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.export-buttons button:hover {
+    background-color: #005f99; /* Darker shade on hover */
+    transform: scale(1.05);
+}
+
+.export-buttons button:active {
+    background-color: #003f66; /* Even darker shade when clicked */
+}

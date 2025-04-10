@@ -1,0 +1,527 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F7FBFC;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 270px;
+  background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+
+
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+}
+
+.admin-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.admin-info h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.admin-info p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #333;
+}
+
+nav.menu {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 30px;
+}
+
+nav.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav.menu ul li {
+  margin-bottom: 20px;
+}
+
+nav.menu ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+nav.menu ul li a:hover {
+  background-color: #71d4fc;
+  border-radius: 10px;
+}
+
+nav.menu ul li a i {
+  margin-right: 15px;
+}
+
+nav.menu ul li.active a {
+  background-color: #71d4fc;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.logout {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logout a i {
+  margin-right: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 270px; /* Default width */
+  background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Scroll if content overflows */
+  transition: width 0.3s ease;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+}
+
+.admin-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.admin-info h3, .admin-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+nav.menu {
+  flex-grow: 1;
+  margin-top: 30px;
+}
+
+nav.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav.menu ul li a {
+  text-decoration: none;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+nav.menu ul li a:hover,
+nav.menu ul li.active a {
+  background-color: #71d4fc;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+nav.menu ul li a i {
+  margin-right: 10px;
+}
+
+.logout {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logout a {
+  text-decoration: none;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logout a i {
+  margin-right: 10px;
+}
+
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 180px; /* Smaller sidebar on medium screens */
+  }
+
+  .main-content {
+      margin-left: 180px; /* Adjust main content */
+  }
+
+  .admin-info h3,
+  .admin-info p {
+      font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+      width: 100px; /* Narrow sidebar for small screens */
+      padding: 10px 0;
+  }
+
+  nav.menu ul li a {
+      justify-content: center; /* Center icons */
+      padding: 10px;
+  }
+
+  nav.menu ul li a i {
+      margin: 0;
+  }
+
+  .admin-info h3,
+  .admin-info p {
+      display: none; /* Hide text for small screens */
+  }}
+  
+
+/* Modal styles for Attendance History */
+.modal-attendance-history {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 9999; /* Ensure it appears above all content */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  overflow: hidden; /* Prevent scrolling on the entire modal */
+  animation: fadeIn 0.3s ease-in-out; /* Animation for smooth fade-in */
+}
+
+/* Content inside the modal */
+.modal-content-history {
+  background-color: white;
+  max-height: 50vh; /* Maximum height of modal content */
+  overflow-y: auto; /* Add vertical scrollbar when content exceeds max-height */
+  margin: 10% auto; /* Center the modal vertically and horizontally */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%; /* Adjust width for responsiveness */
+  max-width: 700px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slidedown 0.3s ease-out; /* Animation for slide-up effect */
+}
+
+.modal-content-history h3 {
+  background-color: #71d4fc; /* Light blue background for header */
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 210px;
+  width: 250px;
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Close button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Table Styling */
+.modal-content-history table {
+  width: 100%;
+  border-collapse: separate; /* Prevent collapse */
+  border-spacing: 0;
+  margin: 0;
+  background-color: #fff; /* White background for the table */
+  border-radius: 8px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures content stays inside the rounded corners */
+  font-size: 14px;
+}
+
+/* Unified Table Header Styling */
+.modal-content-history table th {
+  background-color: #71d4fc; /* Light blue background for header */
+  color: #000; /* Black text color for header */
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+/* Table Header Rounded Corners */
+.modal-content-history table th:first-child {
+  border-top-left-radius: 8px; /* Rounded corner for the first header cell */
+}
+
+.modal-content-history table th:last-child {
+  border-top-right-radius: 8px; /* Rounded corner for the last header cell */
+}
+
+/* Table Rows Styling */
+.modal-content-history table td {
+  font-size: 15px; /* Font size */
+  padding: 20px 25px; /* Padding inside cells */
+  text-align: center; /* Center-align most table cells */
+  color: #333; /* Dark grey text */
+  border-bottom: 1px solid #ddd; /* Light border under rows */
+}
+
+/* Table Row Hover Effect */
+.modal-content-history table tr:hover {
+  background-color: #f1f1f1; /* Light grey background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-content-history {
+      width: 90%; /* Adjust modal content width for smaller screens */
+  }
+}
+
+/* Animations for Modal Appearance */
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+      transform: translateY(30px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+
+.action-btn.view-btn {
+  margin-top:50px;
+  background-color: #71d4fc; /* Light blue background */
+  color: #000; /* White text */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  border: none; /* Remove border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover transition */
+  
+}
+
+.action-btn.view-btn:hover {
+  background-color: #5ab4e8; /* Darker blue on hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.action-btn.view-btn:active {
+  background-color: #499fc7; /* Even darker blue on click */
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+  transform: translateY(1px); /* Pressed effect on click */
+}
+
+.action-btn.view-btn:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0px 0px 8px rgba(113, 212, 252, 0.8); /* Glow effect on focus */
+}
+
+.modal-pos-logs {
+  display: none; /* Hidden by default */
+position: fixed;
+z-index: 9999; /* Ensure it appears above all content */
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+overflow: hidden; /* Prevent scrolling on the entire modal */
+animation: fadeIn 0.3s ease-in-out; /* Animation for smooth fade-in */
+}
+
+.modal-pos-logs-content {
+  background-color: white;
+max-height: 50vh; /* Maximum height of modal content */
+overflow-y: auto; /* Add vertical scrollbar when content exceeds max-height */
+margin: 10% auto; /* Center the modal vertically and horizontally */
+padding: 20px;
+border: 1px solid #888;
+width: 90%; /* Adjust width for responsiveness */
+max-width: 700px;
+border-radius: 8px; /* Rounded corners */
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+animation: slidedown 0.3s ease-out; /* Animation for slide-up effect */
+}
+
+.modal-pos-logs-content h3 {
+background-color: #71d4fc; /* Light blue background for header */
+border-radius: 8px;
+padding: 10px;
+margin-left: 210px;
+text-align: center;
+width: 250px;
+margin-top: 0;
+font-size: 24px;
+font-weight: bold;
+}
+
+.close-pos-logs-btn {
+  color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close-pos-logs-btn:hover,
+.close-pos-logs-btn:focus {
+  color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+.modal-pos-logs-content table {
+  width: 100%;
+border-collapse: separate; /* Prevent collapse */
+border-spacing: 0;
+margin: 0;
+background-color: #fff; /* White background for the table */
+border-radius: 8px; /* Rounded corners for the table */
+overflow: hidden; /* Ensures content stays inside the rounded corners */
+font-size: 14px;
+}
+
+/* Unified Table Header Styling */
+.modal-pos-logs-content table th {
+  background-color: #71d4fc; /* Light blue background for header */
+color: #000; /* Black text color for header */
+font-weight: bold;
+padding: 15px;
+border-bottom: 1px solid #ccc;
+text-align: center;
+}
+
+/* Table Header Rounded Corners */
+.modal-pos-logs-content table th:first-child {
+  border-top-left-radius: 8px; /* Rounded corner for the first header cell */
+}
+
+.modal-pos-logs-content table th:last-child {
+  border-top-right-radius: 8px; /* Rounded corner for the last header cell */
+}
+
+/* Table Rows Styling */
+.modal-pos-logs-content table td {
+  font-size: 15px; /* Font size */
+padding: 20px 25px; /* Padding inside cells */
+text-align: center; /* Center-align most table cells */
+color: #333; /* Dark grey text */
+border-bottom: 1px solid #ddd; /* Light border under rows */
+}
+
+/* Specific Alignment for Certain Columns */
+.modal-pos-logs-content table td:nth-child(1),
+.modal-pos-logs-content table td:nth-child(2) {
+  text-align: center; /* Center-align for the first two columns */
+}
+
+/* Table Row Hover Effect */
+.modal-pos-logs-content table tr:hover {
+  background-color: #f1f1f1; /* Light grey background on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-pos-logs-content {
+      margin: 10% auto;
+      width: 90%;
+  }
+
+  .modal-pos-logs-content h3 {
+      margin-left: 0;
+      width: 100%;
+      font-size: 20px;
+  }
+}
+/* Animations for Modal Appearance */
+@keyframes fadeIn {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+@keyframes slideUp {
+0% {
+    transform: translateY(30px);
+    opacity: 0;
+}
+100% {
+    transform: translateY(0);
+    opacity: 1;
+}
+}

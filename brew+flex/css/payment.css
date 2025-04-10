@@ -1,0 +1,261 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F7FBFC;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+
+.main-content {
+    flex-grow: 1;
+    background-color: #F7FBFC;
+    padding: 50px;
+    margin-top: 100px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    font-size: 36px;
+    color: #000;
+}
+
+.logo {
+    width: 330px;
+    height: auto;
+    position: absolute;
+    top: 3px;
+    right: 10px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.form-container h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 25px;
+    background-color: #71d4fc;
+    color: #000;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.form-group div {
+    width: 48%;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+   
+}
+
+.form-group select,
+.form-group .amount-display {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group select:focus {
+    border-color: #00bfff;
+}
+
+.amount-display {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 10px;
+    background-color: #f0f8ff;
+    color: #333;
+    width: auto;
+    margin-top: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+}
+
+.form-buttons .cancel-btn {
+    background-color: #ccc;
+    color: #000;
+}
+
+.form-buttons .next-btn {
+    background-color: #00bfff;
+}
+
+.form-buttons .next-btn:hover {
+    background-color: #009acd;
+}
+
+.logout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out; /* Animation for smooth appearance */
+    }
+    
+    .modal-logouts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal Content */
+.logouts-content {
+    background: linear-gradient(to bottom right, #bde3e8, #f2f2f2);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s ease;
+    position: relative;
+}
+
+.modal-icon {
+    font-size: 40px;
+    color: #71d4fc;
+    margin-bottom: 15px;
+}
+
+.logouts-content h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    margin-top: 20px;
+}
+
+.logouts-content button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Confirm Button */
+.confirms-buttons {
+    background-color: #71d4fc;
+    color: #ffffff;
+}
+
+.confirms-buttons:hover {
+    background-color: #71d4fc;
+    transform: scale(1.05);
+}
+
+/* Cancel Button */
+.cancels-buttons {
+    background-color: #ccc;
+    color: #333;
+}
+
+.cancels-buttons:hover {
+    background-color: #bbb;
+    transform: scale(1.05);
+}
+
+/* Modal Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
